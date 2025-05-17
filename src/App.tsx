@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import toast, { Toaster } from 'react-hot-toast'
 
 const App = () => {
   const [email, setEmail] = useState('')
@@ -80,18 +81,67 @@ const App = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    console.log('Email submitted:', email)
-    setEmail('')
+    if (email) {
+      toast.success('Thanks for subscribing! 🎉', {
+        duration: 3000,
+        position: 'top-center',
+        style: {
+          background: '#4ade80',
+          color: '#fff',
+          padding: '16px',
+          borderRadius: '10px',
+        },
+        icon: '✨'
+      })
+      console.log('Email submitted:', email)
+      setEmail('')
+    } else {
+      toast.error('Please enter your email address', {
+        duration: 3000,
+        position: 'top-center',
+        style: {
+          background: '#ef4444',
+          color: '#fff',
+          padding: '16px',
+          borderRadius: '10px',
+        },
+      })
+    }
   }
 
   const handleContactSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    console.log('Contact form submitted:', contactForm)
-    setContactForm({ name: '', email: '', subject: '', message: '' })
+    if (contactForm.name && contactForm.email && contactForm.subject && contactForm.message) {
+      toast.success('Message sent successfully! 🚀', {
+        duration: 3000,
+        position: 'top-center',
+        style: {
+          background: '#4ade80',
+          color: '#fff',
+          padding: '16px',
+          borderRadius: '10px',
+        },
+        icon: '📨'
+      })
+      console.log('Contact form submitted:', contactForm)
+      setContactForm({ name: '', email: '', subject: '', message: '' })
+    } else {
+      toast.error('Please fill in all fields', {
+        duration: 3000,
+        position: 'top-center',
+        style: {
+          background: '#ef4444',
+          color: '#fff',
+          padding: '16px',
+          borderRadius: '10px',
+        },
+      })
+    }
   }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-blue-100 to-white">
+      <Toaster />
       <header className="w-full bg-white/80 backdrop-blur-sm shadow-md py-4 fixed top-0 left-0 z-50">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-center space-x-3">
@@ -150,17 +200,19 @@ const App = () => {
               </div>
               <pre className="text-green-400 font-mono text-xs sm:text-sm overflow-x-auto">
                 <code className="typing-animation">
-{`class Tayokod {
-  async build() {
-    console.log("🚀 Starting Project");
-    ["Plan", "Code", "Test"].forEach(
-      phase => console.log(\`✓ \${phase}\`)
-    );
-    console.log("✨ Success!");
-  }
+{`function createMagic() {
+  const tayokod = {
+    vision: "💫 Digital Excellence",
+    tools: ["⚡️ Web", "📱 Mobile", "☁️ Cloud"],
+    deliver: () => "✨ Amazing Solutions"
+  };
+
+  console.log("🚀 Building the future...");
+  return tayokod.deliver();
 }
 
-new Tayokod().build();`}
+// Let's make something amazing!
+createMagic(); // => ✨ Amazing Solutions`}
                 </code>
               </pre>
             </div>
