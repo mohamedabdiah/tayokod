@@ -98,7 +98,7 @@ const App = () => {
             <img 
               src="/logo.png" 
               alt="Tayokod" 
-              className="h-12 hover:opacity-90 transition-opacity duration-300"
+              className="h-16 sm:h-20 hover:opacity-90 transition-opacity duration-300"
             />
           </div>
         </div>
