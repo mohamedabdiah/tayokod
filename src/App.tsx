@@ -95,40 +95,42 @@ const App = () => {
       <header className="w-full bg-white/80 backdrop-blur-sm shadow-md py-4 fixed top-0 left-0 z-50">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-center">
-            <h1 className="text-4xl font-bold text-blue-400 tracking-wider hover:text-blue-500 transition-colors duration-300">
-              Tayokod
-            </h1>
+            <img 
+              src="/logo.png" 
+              alt="Tayokod" 
+              className="h-12 hover:opacity-90 transition-opacity duration-300"
+            />
           </div>
         </div>
       </header>
 
       <main className="container mx-auto px-4 pt-24">
-        <section className="py-16 flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="flex-1 max-w-xl">
-            <h1 className="text-5xl font-bold mb-6">
+        <section className="py-8 sm:py-12 md:py-16 flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="flex-1 w-full md:max-w-xl">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 text-center md:text-left">
               Welcome to <span className="text-blue-400">Tayokod</span>
             </h1>
             
-            <p className="text-gray-700 text-lg mb-8 leading-relaxed">
+            <p className="text-gray-700 text-base sm:text-lg mb-6 sm:mb-8 leading-relaxed text-center md:text-left">
               At Tayokod, we specialize in crafting innovative software solutions and robust systems 
               that drive digital transformation. Our expertise spans across modern technologies, 
               delivering custom software applications, enterprise systems, and scalable solutions 
               that help businesses thrive in the digital age.
             </p>
 
-            <form onSubmit={handleSubmit} className="w-full mb-8">
-              <div className="flex gap-2">
+            <form onSubmit={handleSubmit} className="w-full mb-6 sm:mb-8">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-2">
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email"
-                  className="flex-1 px-4 py-3 rounded-lg border border-blue-200 focus:outline-none focus:border-blue-400 bg-white/80"
+                  className="flex-1 px-4 py-3 rounded-lg border border-blue-200 focus:outline-none focus:border-blue-400 bg-white/80 w-full"
                   required
                 />
                 <button
                   type="submit"
-                  className="px-6 py-3 bg-blue-400 text-white rounded-lg hover:bg-blue-500 transition-colors duration-300"
+                  className="w-full sm:w-auto px-6 py-3 bg-blue-400 text-white rounded-lg hover:bg-blue-500 transition-colors duration-300"
                 >
                   Subscribe
                 </button>
@@ -136,14 +138,14 @@ const App = () => {
             </form>
           </div>
 
-          <div className="flex-1 max-w-xl">
-            <div className="bg-gray-900/90 backdrop-blur-sm p-6 rounded-xl shadow-2xl">
+          <div className="flex-1 w-full md:max-w-xl">
+            <div className="bg-gray-900/90 backdrop-blur-sm p-4 sm:p-6 rounded-xl shadow-2xl">
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-3 h-3 rounded-full bg-red-500"></div>
                 <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                 <div className="w-3 h-3 rounded-full bg-green-500"></div>
               </div>
-              <pre className="text-green-400 font-mono text-sm overflow-x-auto">
+              <pre className="text-green-400 font-mono text-xs sm:text-sm overflow-x-auto">
                 <code className="typing-animation">
 {`class Tayokod {
   async build() {
@@ -189,23 +191,25 @@ new Tayokod().build();`}
           </div>
         </section>
 
-        <section className="py-16">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
+        <section className="py-8 sm:py-12 md:py-16">
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12 text-gray-800">
             Our Technology Stack
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6 lg:gap-8">
             {techStack.map((tech, index) => (
               <div
                 key={tech.name}
-                className="group flex flex-col items-center justify-center p-4 rounded-lg bg-white/80 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in"
+                className="group flex flex-col items-center justify-center p-3 sm:p-4 rounded-lg bg-white/80 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <img
                   src={tech.icon}
                   alt={tech.name}
-                  className={`object-contain filter group-hover:grayscale transition-all duration-300 animate-float ${tech.isLarge ? 'w-32 h-24' : 'w-20 h-20'}`}
+                  className={`object-contain filter group-hover:grayscale transition-all duration-300 animate-float ${
+                    tech.isLarge ? 'w-24 sm:w-32 h-16 sm:h-24' : 'w-16 sm:w-20 h-16 sm:h-20'
+                  }`}
                 />
-                <p className="mt-4 text-sm font-medium text-gray-600 group-hover:text-blue-400 transition-colors duration-300">
+                <p className="mt-3 sm:mt-4 text-xs sm:text-sm font-medium text-gray-600 group-hover:text-blue-400 transition-colors duration-300">
                   {tech.name}
                 </p>
               </div>
@@ -213,33 +217,33 @@ new Tayokod().build();`}
           </div>
         </section>
 
-        <section className="py-16 bg-white/50 backdrop-blur-sm rounded-2xl shadow-lg mb-16">
+        <section className="py-8 sm:py-12 md:py-16 bg-white/50 backdrop-blur-sm rounded-xl sm:rounded-2xl shadow-lg mb-8 sm:mb-16">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">Contact Us</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12 text-gray-800">Contact Us</h2>
             
-            <div className="grid md:grid-cols-2 gap-12">
-              <div className="space-y-8">
-                <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300">
-                  <h3 className="text-xl font-semibold text-gray-800 mb-4">Get in Touch</h3>
-                  <div className="space-y-4">
-                    <div className="flex items-center space-x-4 text-gray-600">
-                      <span className="text-2xl">📍</span>
-                      <p>Jigjiga-Ethiopia</p>
+            <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-12">
+              <div className="space-y-6 sm:space-y-8">
+                <div className="bg-white/80 backdrop-blur-sm rounded-lg sm:rounded-xl p-4 sm:p-6 shadow-md hover:shadow-lg transition-all duration-300">
+                  <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-3 sm:mb-4">Get in Touch</h3>
+                  <div className="space-y-3 sm:space-y-4">
+                    <div className="flex items-center space-x-3 sm:space-x-4 text-gray-600">
+                      <span className="text-xl sm:text-2xl">📍</span>
+                      <p className="text-sm sm:text-base">Jigjiga-Ethiopia</p>
                     </div>
-                    <div className="flex items-center space-x-4 text-gray-600">
-                      <span className="text-2xl">📧</span>
-                      <p>info@tayokod.com</p>
+                    <div className="flex items-center space-x-3 sm:space-x-4 text-gray-600">
+                      <span className="text-xl sm:text-2xl">📧</span>
+                      <p className="text-sm sm:text-base">info@tayokod.com</p>
                     </div>
-                    <div className="flex items-center space-x-4 text-gray-600">
-                      <span className="text-2xl">📱</span>
-                      <p>+251 714652202</p>
+                    <div className="flex items-center space-x-3 sm:space-x-4 text-gray-600">
+                      <span className="text-xl sm:text-2xl">📱</span>
+                      <p className="text-sm sm:text-base">+251 714652202</p>
                     </div>
                   </div>
                 </div>
 
-                <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300">
-                  <h3 className="text-xl font-semibold text-gray-800 mb-4">Follow Us</h3>
-                  <div className="flex space-x-6">
+                <div className="bg-white/80 backdrop-blur-sm rounded-lg sm:rounded-xl p-4 sm:p-6 shadow-md hover:shadow-lg transition-all duration-300">
+                  <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-3 sm:mb-4">Follow Us</h3>
+                  <div className="flex space-x-4 sm:space-x-6">
                     {socialLinks.map((social) => (
                       <a
                         key={social.name}
@@ -249,15 +253,14 @@ new Tayokod().build();`}
                         rel="noopener noreferrer"
                       >
                         {social.icon}
-                        <span className="sr-only">{social.name}</span>
                       </a>
                     ))}
                   </div>
                 </div>
               </div>
 
-              <div className="bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-md hover:shadow-lg transition-all duration-300">
-                <h3 className="text-xl font-semibold text-gray-800 mb-6">Send us a Message</h3>
+              <div className="bg-white/80 backdrop-blur-sm rounded-lg sm:rounded-xl p-4 sm:p-6 md:p-8 shadow-md hover:shadow-lg transition-all duration-300">
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-4 sm:mb-6">Send us a Message</h3>
                 <form onSubmit={handleContactSubmit} className="space-y-4">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
@@ -268,7 +271,7 @@ new Tayokod().build();`}
                       id="name"
                       value={contactForm.name}
                       onChange={(e) => setContactForm({...contactForm, name: e.target.value})}
-                      className="w-full px-4 py-2 rounded-lg border border-blue-200 focus:outline-none focus:border-blue-400 bg-white/80"
+                      className="w-full px-3 sm:px-4 py-2 rounded-lg border border-blue-200 focus:outline-none focus:border-blue-400 bg-white/80 text-sm sm:text-base"
                       required
                     />
                   </div>
@@ -281,7 +284,7 @@ new Tayokod().build();`}
                       id="email"
                       value={contactForm.email}
                       onChange={(e) => setContactForm({...contactForm, email: e.target.value})}
-                      className="w-full px-4 py-2 rounded-lg border border-blue-200 focus:outline-none focus:border-blue-400 bg-white/80"
+                      className="w-full px-3 sm:px-4 py-2 rounded-lg border border-blue-200 focus:outline-none focus:border-blue-400 bg-white/80 text-sm sm:text-base"
                       required
                     />
                   </div>
@@ -294,7 +297,7 @@ new Tayokod().build();`}
                       id="subject"
                       value={contactForm.subject}
                       onChange={(e) => setContactForm({...contactForm, subject: e.target.value})}
-                      className="w-full px-4 py-2 rounded-lg border border-blue-200 focus:outline-none focus:border-blue-400 bg-white/80"
+                      className="w-full px-3 sm:px-4 py-2 rounded-lg border border-blue-200 focus:outline-none focus:border-blue-400 bg-white/80 text-sm sm:text-base"
                       required
                     />
                   </div>
@@ -307,13 +310,13 @@ new Tayokod().build();`}
                       rows={4}
                       value={contactForm.message}
                       onChange={(e) => setContactForm({...contactForm, message: e.target.value})}
-                      className="w-full px-4 py-2 rounded-lg border border-blue-200 focus:outline-none focus:border-blue-400 bg-white/80 resize-none"
+                      className="w-full px-3 sm:px-4 py-2 rounded-lg border border-blue-200 focus:outline-none focus:border-blue-400 bg-white/80 resize-none text-sm sm:text-base"
                       required
                     ></textarea>
                   </div>
                   <button
                     type="submit"
-                    className="w-full px-6 py-3 bg-blue-400 text-white rounded-lg hover:bg-blue-500 transition-colors duration-300"
+                    className="w-full px-6 py-2 sm:py-3 bg-blue-400 text-white rounded-lg hover:bg-blue-500 transition-colors duration-300 text-sm sm:text-base"
                   >
                     Send Message
                   </button>
