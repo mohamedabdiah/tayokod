@@ -94,12 +94,15 @@ const App = () => {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-blue-100 to-white">
       <header className="w-full bg-white/80 backdrop-blur-sm shadow-md py-4 fixed top-0 left-0 z-50">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center space-x-3">
             <img 
               src="/logo.png" 
               alt="Tayokod" 
               className="h-16 sm:h-20 hover:opacity-90 transition-opacity duration-300"
             />
+            <h1 className="text-3xl sm:text-4xl font-bold text-blue-400 tracking-wider hover:text-blue-500 transition-colors duration-300 uppercase">
+              Tayokod
+            </h1>
           </div>
         </div>
       </header>
