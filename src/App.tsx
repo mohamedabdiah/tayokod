@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import toast, { Toaster } from 'react-hot-toast'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { EffectCoverflow, Pagination, Autoplay } from 'swiper/modules'
-import 'swiper/css'
-import 'swiper/css/effect-coverflow'
-import 'swiper/css/pagination'
+
+// Import custom Swiper styles
+import './swiper.css'
 
 const App = () => {
   const [email, setEmail] = useState('')
